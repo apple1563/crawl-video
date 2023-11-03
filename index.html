@@ -1,0 +1,170 @@
+<html lang="">
+<head>
+    <title>短视频/图集在线去水印解析</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+          content="短视频在线去水印解析，抖音视频下载，皮皮虾/抖音/微视/快手/6间房/哔哩哔哩/微博/绿洲/度小视/开眼/陌陌/皮皮搞笑/全民k歌/逗拍/虎牙/新片场/哔哩哔哩/Acfun/美拍/西瓜视频/火山小视频/网易云Mlog/好看视频/QQ小世界视频下载">
+    <meta name="keywords" content="短视频下载,抖音视频下载,快手视频下载,哔哩哔哩视频下载,微博视频下载,视频下载神器">
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TVN5RGZ44"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-0TVN5RGZ44');
+    </script>
+    <style>
+        body {
+            background-image: url("./bg.jpeg");
+        }
+
+        .no-underline {
+            text-decoration-line: none;
+        }
+
+        .waterfall {
+            column-count: 3; /* 列数 */
+            column-gap: 10px; /* 列间距 */
+        }
+
+        .item {
+            break-inside: avoid; /* 防止图片被分割到不同列 */
+            margin-bottom: 10px; /* 图片项之间的垂直间距 */
+        }
+
+        .item img {
+            width: 100%; /* 图片宽度填充父容器 */
+            display: block; /* 块级显示 */
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center">
+<div class="container border border-2 shadow p-4 bg-light"
+     style="max-width: 900px">
+    <div class="text-center">
+        <img src="./avatar.jpg" class="img-thumbnail rounded-circle" style="width: 150px;"
+             alt="短视频/图集在线去水印解析"/>
+    </div>
+    <div class="h2 text-center mt-3 mb-3">短视频/图集在线去水印解析</div>
+    <div class="content">
+        <p><strong>本站公告 </strong><u>图集解析仅抖音/快手/微博/皮皮虾/最右/皮皮搞笑可用</u>，哔哩哔哩/6间房/微博仅支持下载无法去除水印。
+        </p>
+        <p><strong>目前支持 </strong>皮皮虾/抖音/微视/快手/6间房/哔哩哔哩/微博/绿洲/度小视/开眼/陌陌/皮皮搞笑/全民k歌/逗拍/虎牙/新片场/哔哩哔哩/Acfun/美拍/西瓜视频/火山小视频/网易云Mlog/好看视频/QQ小世界
+        </p>
+        <p><strong>温馨提示 </strong>粘贴视频地址时<u>无需删除文案</u><small>
+            但如果视频链接正确但解析失败请删掉文案后重试</small></p>
+    </div>
+    <hr/>
+    <div class="">
+        <div class="input-group mb-3">
+            <select class="btn btn-outline-secondary" id="selectPref">
+                <option selected value="视频">视频</option>
+                <option value="图集">图集</option>
+            </select>
+            <input type="text" class="form-control" id="inputPref">
+            <button class="btn btn-outline-secondary" type="button" id="btnPref">解析</button>
+        </div>
+    </div>
+    <div class="download text-center" style="display: none" id="downloadPref">
+        <div class="h5 mt-4" id="titlePref">地球上没有了甜妹还怎么转呀！
+            #变速卡点 #甜系女孩 #元气少女 #甜妹 #实名观看
+        </div>
+        <div class="mt-4">
+            <a id="coverPref" class="no-underline"
+               download target="_blank">
+                <button type="button" class="btn btn-outline-secondary">
+                    <span class="">下载封面</span>
+                </button>
+            </a>
+            <a id="videoPref" class="me-4 ms-4 no-underline"
+               download target="_blank">
+                <button aria-disabled="false" type="button" class="btn btn-outline-secondary">
+                    <span class="">下载视频</span>
+                </button>
+            </a>
+            <a id="audioPref" class="no-underline"
+               download target="_blank">
+                <button aria-disabled="false" type="button" class="btn btn-outline-secondary">
+                    <span class="">下载音乐</span>
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="download text-center waterfall" style="display: none" id="imagesPref"></div>
+</div>
+<script>
+    const selectElement = document.getElementById('selectPref');
+
+    selectElement.addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+        console.log(selectedValue);
+        // 在这里进行所需的操作
+    });
+    const inputElement = document.getElementById('inputPref');
+
+    inputElement.addEventListener('change', (event) => {
+        const value = event.target.value;
+        console.log(value);
+        // 在这里进行所需的操作
+    });
+
+    const btnElement = document.getElementById('btnPref');
+    const downloadElement = document.getElementById('downloadPref');
+    const imagesElement = document.getElementById('imagesPref');
+
+    btnElement.addEventListener('click', () => {
+        const match = inputElement.value.match(/(https?:\/\/[^\s]+)/g);
+        if (!match || match.length <= 0) {
+            alert("无效链接");
+            return;
+        }
+        console.log(selectElement.value, inputElement.value);
+        if (selectElement.value === "视频") {
+            fetch("https://tenapi.cn/v2/video?url=" + match[0]).then(res => res.json()).then(res => {
+                if (res.code === 200) {
+                    document.getElementById("titlePref").innerText = res.data.title;
+                    document.getElementById("coverPref").href = res.data.cover;
+                    document.getElementById("videoPref").href = res.data.url;
+                    document.getElementById("audioPref").href = res.data.music.url;
+                    downloadElement.style.display = "block";
+                    imagesElement.style.display = "none";
+                    alert("解析成功");
+                } else {
+                    alert(res.msg);
+                }
+            });
+        }
+        if (selectElement.value === "图集") {
+            fetch("https://tenapi.cn/v2/images?url=" + match[0]).then(res => res.json()).then(res => {
+                if (res.code === 200) {
+                    imagesElement.innerHTML = "";
+                    for (const imgUrl of res.data.images) {
+                        const eleDiv = document.createElement("div");
+                        eleDiv.className = 'item';
+                        const eleImg = document.createElement("img");
+                        eleImg.src = imgUrl;
+                        eleDiv.appendChild(eleImg);
+                        imagesElement.appendChild(eleDiv);
+                    }
+                    downloadElement.style.display = "none";
+                    imagesElement.style.display = "block";
+                    alert("解析成功");
+                } else {
+                    alert(res.msg);
+                }
+            });
+        }
+    });
+</script>
+</body>
+
+</html>
